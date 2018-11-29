@@ -1,6 +1,6 @@
 {
   "name": "fastify-cockroachdb",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Fastify plugin for creating a CockroachDB connection through the Sequelize ORM",
   "main": "index.js",
   "dependencies": {
