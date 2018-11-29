@@ -9,8 +9,14 @@ async function cockroachConnector(fastify, options) {
   const sequelize = new Sequelize(
     options.database,
     options.user,
-    options.password,
+    options.password ? options.password : "",
     options.settings
+      ? options.settings
+      : {
+          dialect: "postgres",
+          port: options.port ? options.port : 26257,
+          logging: false
+        }
   );
 
   // Ensure details are correct

@@ -1,4 +1,4 @@
-# Fastify CockroachDB Plugin using Sequelize
+# Fastify CockroachDB Plugin using Sequelize ORM
 
 [![NPM](https://nodei.co/npm/fastify-cockroachdb.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/fastify-cockroachdb/)
 
@@ -59,13 +59,14 @@ fastify.get("/", (request, reply) => {
 
 ## Options
 
-| Option     | Description                                                                                                                                                                                                                                                  |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `database` | Required, the name of the database to connect to within CockroachDB                                                                                                                                                                                          |
-| `user`     | Required, the name of the user to log in as within the database                                                                                                                                                                                              |
-| `password` | Optional, the password of the user to log in as. Should be empty if SSL is used                                                                                                                                                                              |
-| `settings` | Optional, the settings to be passed in to the Sequelize ORM. Should include `dialectOptions` if a secure CockroachDB instance is used. Consult [this tutorial](https://www.cockroachlabs.com/docs/stable/build-a-nodejs-app-with-cockroachdb-sequelize.html) |
-| `models`   | Optional, any models to be declared and injected under `fastify.cockroachdb.models`                                                                                                                                                                          |
+| Option     | Description                                                                                                                                                                                                                                                   |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `database` | Required, the name of the database to connect to within CockroachDB.                                                                                                                                                                                          |
+| `user`     | Required, the name of the user to log in as within the database.                                                                                                                                                                                              |
+| `password` | Optional, the password of the user to log in as. Should be empty if SSL is used.                                                                                                                                                                              |
+| `settings` | Optional, the settings to be passed in to the Sequelize ORM. Should include `dialectOptions` if a secure CockroachDB instance is used. Consult [this tutorial](https://www.cockroachlabs.com/docs/stable/build-a-nodejs-app-with-cockroachdb-sequelize.html). |
+| `port`     | Optional, used in place of default port `26257` if no `settings` parameter is found.                                                                                                                                                                          |
+| `models`   | Optional, any models to be declared and injected under `fastify.cockroachdb.models`.                                                                                                                                                                          |
 
 Any models declared should follow the following format:
 
