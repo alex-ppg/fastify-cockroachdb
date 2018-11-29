@@ -1,0 +1,36 @@
+{
+  "name": "fastify-cockroachdb",
+  "version": "1.0.0",
+  "description": "A Fastify plugin for creating a CockroachDB connection through the Sequelize ORM",
+  "main": "index.js",
+  "dependencies": {
+    "fastify-plugin": "^1.2.1",
+    "fastify": "^1.13.1",
+    "sequelize-cockroachdb": "^1.0.3",
+    "sequelize": "^4.41.2"
+  },
+  "devDependencies": {
+    "tap": "^12.1.0"
+  },
+  "scripts": {
+    "test": "tap test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex-ppg/fastify-cockroachdb.git"
+  },
+  "keywords": [
+    "fastify",
+    "cockroachdb",
+    "sequelize",
+    "orm",
+    "database",
+    "distributed"
+  ],
+  "author": "Alex Papageorgiou",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/alex-ppg/fastify-cockroachdb/issues"
+  },
+  "homepage": "https://github.com/alex-ppg/fastify-cockroachdb#readme"
+}
