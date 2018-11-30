@@ -1,6 +1,7 @@
 # Fastify CockroachDB Plugin using Sequelize ORM
 
-[![NPM](https://nodei.co/npm/fastify-cockroachdb.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/fastify-cockroachdb/)
+[![NPM](https://nodei.co/npm/fastify-cockroachdb.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/fastify-cockroachdb/)
+[![CircleCI](https://circleci.com/gh/alex-ppg/fastify-cockroachdb.svg?style=svg)](https://circleci.com/gh/alex-ppg/fastify-cockroachdb)
 
 ## Installation
 
