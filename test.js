@@ -13,7 +13,6 @@ tap.test("fastify.cockroachdb should exist", test => {
   fastify.register(fastifyCockroach, {
     database: "bank",
     user: "maxroach",
-    password: "",
     models: [
       {
         name: "accounts",
