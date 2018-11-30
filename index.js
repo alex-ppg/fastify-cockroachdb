@@ -27,8 +27,9 @@ async function cockroachConnector(fastify, options) {
   };
 
   if (options.models.length !== 0) {
+    decorator.models = {};
     options.models.forEach(model => {
-      decorator[
+      decorator.models[
         model.alias
           ? model.alias
           : `${model.name[0].toUpperCase()}${model.name.slice(1)}`
