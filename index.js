@@ -4,8 +4,8 @@ const fastifyPlugin = require("fastify-plugin");
 const Sequelize = require("sequelize-cockroachdb");
 
 async function cockroachConnector(fastify, options) {
-  // CockroachDB is a Postgre SQL Database
-  options.settings.dialect = "postgres";
+  // CockroachDB is a Postgre SQL Database so override custom dialect
+  options.settings ? (options.settings.dialect = "postgres") : undefined;
   const sequelize = new Sequelize(
     options.database,
     options.user,
