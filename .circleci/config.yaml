@@ -1,0 +1,46 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:7.10
+      - image: cockroachdb/cockroach:v2.1.1
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run: |
+          docker network create -d bridge roachnet
+          docker run -d --name=roach1 --hostname=roach1 --net=roachnet -p 26257:26257 -v "${PWD}/cockroach-data/roach1:/cockroach/cockroach-data" cockroachdb/cockroach:v2.1.1 start --insecure
+          docker exec -it roach1 ./cockroach sql --insecure --execute="CREATE USER IF NOT EXISTS maxroach;CREATE DATABASE bank;GRANT ALL ON DATABASE bank TO maxroach;"
+          yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # run tests!
+      - run: |
+          yarn test
+          docker stop roach1
+          docker rm roach1
+          rm -rf cockroach-data

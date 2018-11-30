@@ -14,18 +14,6 @@ tap.test("fastify.cockroachdb should exist", test => {
     database: "bank",
     user: "maxroach",
     password: "",
-    settings: {
-      dialect: "postgres",
-      port: 26257,
-      logging: false,
-      dialectOptions: {
-        ssl: {
-          ca: fs.readFileSync("certs/ca.crt").toString(),
-          key: fs.readFileSync("certs/client.maxroach.key").toString(),
-          cert: fs.readFileSync("certs/client.maxroach.crt").toString()
-        }
-      }
-    },
     models: [
       {
         name: "accounts",
