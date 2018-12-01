@@ -15,6 +15,9 @@
   "scripts": {
     "test": "tap test.js"
   },
+  "engines": {
+    "node": ">=8"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alex-ppg/fastify-cockroachdb.git"
